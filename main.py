@@ -1,40 +1,29 @@
 import menu
-import input
+import input_data
+import search
 
 def main():
     menu.main_menu('Start')
     while (True):
         menu.main_menu('Main')
-        value = input('Выберите пункт меню: ')
-    match value:
-                case 1:
-                    print('=' * 50)
-                    print('Ввод новой записи')
-                    print('=' * 50)
+        value = int(input('Выберите пункт меню: '))
+        match value:
+            case 1:
+                print('=' * 50)
+                print('Ввод новой записи')
+                print('=' * 50)
+                input_data.input_data()
+                
+            case 2:
+                print('=' * 50)
+                print('Поиск записи')
+                print('=' * 50)
+                search_string = []
+                name = input('Введите фамилию ')
+                search_string = search.search_data(name)
+                for key,value in search_string.items():
+                    print(key, ':', value)
 
-                    # try:
-                    input.input_data()
-                    # except:
-                        
-                        # continue
-                # case 2:
-                #     print('=' * 50)
-                #     print('Калькулятор для работы с комплексными числами')
-                #     print('=' * 50)
-
-                #     ui.choice_menu_complex_nums()
-                #     value_2 = input('Выберите действие с числами: ')
-                #     value_2 = ex.check_input_menu(value_2)
-                #     log.oper_logger(value_2)
-
-                #     try:
-                #         if 1 <= value_2 <= 7:
-                #             ui.calc_complex_nums(value_2)
-                #     except:
-                #         log.actions_logger('Пользователь ввёл некорректные данные для вычисления.')
-                #         print('Некорректное значение! Введите число!\n')
-                #         print('=' * 50)
-                #         continue
                 # case 3:
                 #     print('Запущен выход из программы')
                 #     ui.exit_menu("End")
@@ -51,7 +40,6 @@ def main():
                 #     print('\n' * 10, 'Введите число в указанном диапазоне!\n')
                 #     print('=' * 50)
 
-
-    main()
+main()
        
         
